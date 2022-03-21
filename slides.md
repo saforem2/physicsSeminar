@@ -71,6 +71,52 @@ March, 2022
 
 ---
 
+# Grad School
+
+- The application process is difficult
+
+- Lots of rejections...
+  - Avoid having to pay for grad school (if possible!)
+  - <a href="https://twitter.com/rerutled/status/1502650135934869506"><i class="fab  fa-twitter faa-float animated "></i> thread</a>
+
+- Accepted to UIowa
+
+- Plan was to study high-energy theory and mathematical physics...
+
+---
+
+# Grad School
+
+- Became interested in computational aspects
+  - [Machine Learning Phases of Matter](https://www.nature.com/articles/nphys4035)
+  - Developing software for simulations
+  - Markov Chain Monte Carlo (MCMC)
+  - Molecular Dynamics
+  - <span id="red">Machine Learning</span>
+
+- Received the [Office of Science Graduate Student Research Program](https://science.osti.gov/wdts/scgsr) fellowship
+  - Allowed me to spend last year of grad school at ANL working on my proposed project
+  - Introduced me to my current supervisor and opened the door for my postdoc
+
+---
+
+# ML in HEP
+
+<div style="text-align:left;">
+
+- <i class="fab  fa-github faa-float animated "></i> [HEP-ML-Resources](https://github.com/iml-wg/HEP-ML-Resources)
+
+- [Snowmass 2021](https://snowmass21.org/start)
+  - [Applications of Machine Learning to Lattice Quantum Field Theory](https://arxiv.org/abs/2202.05838)
+
+> It provides an opportunity for the entire particle physics community to come
+> together to identify and document a scientific vision for the future of
+> particle physics in the U.S. and its international partners.
+
+</div>
+
+---
+
 # Quantum Chromodynamics
 
 <div id="left" style="width=66%;font-size:1.05em;">
@@ -98,23 +144,15 @@ March, 2022
 
 ---
 
-# Lattice QCD
+# Markov Chain Monte Carlo
 
-<img src="assets/static/continuum.svg" width=90%>
+- MCMC sampling provides a class of algorithms for systematic sampling from
+  high-dimensional probability distributions.
 
----
+- <span id="red">Goal</span>: Generate an ensemble of <span
+  id="blue">independent</span> samples drawn from desired target distribution $p(x)$.
 
-## Lattice QCD
-
-- Non-perturbative approach to solving the QCD theory of the strong interaction
-  between quarks and gluons.
-- Calculations in LatticeQCD proceed in 3 steps:
-  1. <span id="red">Gauge Field Generation</span>: Use Markov Chain Monte Carlo (MCMC) methods
-     for sampling _independent_ gauge field (gluon) configurations.
-  2. <span id="red">Propagator calculations</span>: Compute how quarks propagate in these fields
-     (_quark propagators_)
-  3. <span id="red">Contractions</span>: Method for combining quark propagators into correlation
-     functions and observables.
+  - This can be done using the <span id="blue">Metropolis-Hastings</span> algorithm
 
 ---
 <span style="font-size: 0.9em;">
@@ -199,6 +237,27 @@ As $N\rightarrow\infty$, $p(x) \rightarrow \mathcal{N}(0, \mathbb{1})$
 
 ---
 
+<div style="text-align:left;">
+
+## [Ising Model](https://en.wikipedia.org/wiki/Ising_model)
+
+- Spins $\sigma = \pm1$ ($\uparrow$ / $\downarrow$) at each site on
+  lattice $\Lambda$
+
+- For adjacent spins $\sigma_{i}$, $\sigma_{j}$: $ H(\sigma) = -\sum_{\langle i, j\rangle} \sigma_{i} \sigma_{j} $
+
+- <span id="red">Distribution</span>:
+
+</div>
+
+<span id="note">$p_{\beta}(\sigma)\propto e^{-\beta H(\sigma)}$</span>
+
+<br>
+
+![](./assets/ising/ising.svg)
+
+---
+
 <div id='dark' style="vertical-align:center;text-align:left;">
 
 # Motivation
@@ -219,7 +278,7 @@ $$
 
 ---
 
-<div id='dark'>
+<div id='dark' style="vertical-align:center;text-align:left;">
 
 # Motivation
 
@@ -230,13 +289,26 @@ $$
   \simeq\frac{1}{N}\sum_{n=1}^{N}\mathcal{O}(x_{n})$$
   $$\Rightarrow \sigma^{2}=\frac{1}{N}\text{Var}\left[\mathcal{O}(x\right)]$$
 - Accounting for <span id="blue">autocorrelations</span>:
-  $$ \sigma^{2}=\frac{\color{#228BE6}{\tau_{\mathrm{int}}^{\mathcal{O}}}}{N}\text{Var}\left[\mathcal{O}(x)\right] $$
+  $$ \sigma^{2}=\frac{\color{#00CCFF}{\tau_{\mathrm{int}}^{\mathcal{O}}}}{N}\text{Var}\left[\mathcal{O}(x)\right] $$
 - <span id="blue">$\tau_{\mathrm{int}}^{\mathcal{O}}$</span> is known to scale <span
   id="red">exponentially</span> as we approach physical lattice spacing.
 
 </span>
 
 </div>
+
+<!-- --- -->
+<!-- ## Lattice QCD -->
+
+<!-- - Non-perturbative approach to solving the QCD theory of the strong interaction -->
+<!--   between quarks and gluons. -->
+<!-- - Calculations in LatticeQCD proceed in 3 steps: -->
+<!--   1. <span id="red">Gauge Field Generation</span>: Use Markov Chain Monte Carlo (MCMC) methods -->
+<!--      for sampling _independent_ gauge field (gluon) configurations. -->
+<!--   2. <span id="red">Propagator calculations</span>: Compute how quarks propagate in these fields -->
+<!--      (_quark propagators_) -->
+<!--   3. <span id="red">Contractions</span>: Method for combining quark propagators into correlation -->
+<!--      functions and observables. -->
 
 ---
 
@@ -271,16 +343,32 @@ $\tau_{\mathrm{int}}^{Q} \longrightarrow \infty$
 </div>
 
 ---
+# Lattice QCD
 
-<div id='dark'>
+<img src="assets/static/continuum.svg" width=90%>
+
+---
+
+<div style="text-align: left;">
 
 ### HMC: Leapfrog Integrator
 
-![](assets/hmc1.svg)  <!-- .element width="90%" -->
-
-<iframe data-src="https://chi-feng.github.io/mcmc-demo/app.html"></iframe> <!-- .element width="90%" -->
+- Hamiltonian Dynamics:
 
 </div>
+
+<span id="note" style="font-size:1.5em">$\dot{x} = \frac{\partial H}{\partial v}$</span>
+$\hspace{10pt}$
+<span id="note" style="font-size:1.5em">$\dot{v} = - \frac{\partial H}{\partial x}$</span>
+
+![](assets/hmc1.svg)  <!-- .element width="90%" -->
+
+---
+
+# HMC 
+
+<section data-background-iframe="https://chi-feng.github.io/mcmc-demo/app.html"
+          data-background-interactive>
 
 ---
 
@@ -866,6 +954,7 @@ DE-AC02-06CH11357.
   margin-right: .05em;
   line-height: 0.1em;
   vertical-align: -0.3em;
+  text-align: left;
   color: var(--text-faint);
   font-style: normal !important;
 }
@@ -875,15 +964,18 @@ DE-AC02-06CH11357.
   font-style: normal !important;
   font-align: left;
   display: inline;
+  text-align: left;
 }
 
 .reveal blockquote em{
   color: var(--text-muted);
+  text-align: left;
 }
 
 .reveal blockquote {
   border-radius: 8px !important;
   margin: 0.5rem 0rem 0.5rem 0rem;
+  text-align: left;
   padding-top: 1rem;
   padding-left: 2rem;
   padding-bottom: 1rem;
@@ -903,7 +995,7 @@ DE-AC02-06CH11357.
 }
 
 #blue {
-    color: #228BE6;
+    color: #00CCFF;
 }
 #bright {
     color: #00A2FF;
@@ -944,7 +1036,7 @@ DE-AC02-06CH11357.
 
 #note {
     background-color: rgba(255, 255, 255, 0.1);
-    padding: 5px;
+    padding: 10px;
     border-radius: 8px;
     border-color: rgba(240, 240, 240, 1.0);
     color: rgb(255, 255, 255);
