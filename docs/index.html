@@ -24,16 +24,22 @@
 <br><h3><a href="https:samforeman.me">
 <i class="fa fa-home faa-float"></i> Sam Foreman
 </a></h3>
-<h3><a href="https://twitter.com/saforem2">
-<i class="fab  fa-twitter faa-float animated "></i> @saforem2</a></h3>
+<h4><a href="https://twitter.com/saforem2">
+<i class="fab  fa-twitter faa-float animated "></i> @saforem2</a></h4>
+<!-- <h5><a href="https://bit.ly/phys-sem">🔗 slides</a></h5> -->
 <br>
 March, 2022
 
+<div align="bottom">
+
 [<img align="left" width=10% src="assets/github.svg">](https://github.com/saforem2/l2hmc-qcd)
+<img align="left" style="padding-left:45px;" width=10% src="assets/qr.svg">
 
 [<img align="right" width=35% src="assets/Argonne_cmyk_white.svg">](https://alcf.anl.gov)
 
 <!-- <img src="assets/static/logo.png" style="width:10vw;vertical-align:bottom;padding-right:4%;" align="right"> -->
+
+</div>
 
 </div>
 </script></section><section  data-markdown><script type="text/template">
@@ -73,16 +79,19 @@ March, 2022
   - <a href="https://twitter.com/rerutled/status/1502650135934869506"><i class="fab  fa-twitter faa-float animated "></i> thread</a>
 
 - Accepted to UIowa
+  - Plan was to study high-energy theory and mathematical physics...
+  - Met my advisor, [Yannick Meurice](https://physics.uiowa.edu/people/yannick-meurice)
+  - Thesis: 
+    - [Learning Better Physics: A Machine Learning Approach to Lattice Gauge Theory](https://www.researchgate.net/profile/Samuel-Foreman/publication/337499051_Learning_better_physics_a_machine_learning_approach_to_lattice_gauge_theory/links/5ddc390c299bf10c5a3340dd/Learning-better-physics-a-machine-learning-approach-to-lattice-gauge-theory.pdf)
 
-- Plan was to study high-energy theory and mathematical physics...
 </script></section><section  data-markdown><script type="text/template">
 # Grad School
 
 - Became interested in computational aspects
   - [Machine Learning Phases of Matter](https://www.nature.com/articles/nphys4035)
   - Developing software for simulations
-  - Markov Chain Monte Carlo (MCMC)
-  - Molecular Dynamics
+    - Markov Chain Monte Carlo (MCMC)
+    - Molecular Dynamics
   - <span id="red">Machine Learning</span>
 
 - Received the [Office of Science Graduate Student Research Program](https://science.osti.gov/wdts/scgsr) fellowship
@@ -225,7 +234,7 @@ As $N\rightarrow\infty$, $p(x) \rightarrow \mathcal{N}(0, \mathbb{1})$
 
 </div>
 
-<span id="note">$p_{\beta}(\sigma)\propto e^{-\beta H(\sigma)}$</span>
+<span id="note">$p_{\beta}(\sigma)\propto e^{-\beta H(\sigma)} = e^{-S_{\beta}(\sigma)}$</span>
 
 <br>
 
@@ -462,24 +471,33 @@ $\hspace{6pt}$ <span id="red"> **Discrete:**</span> <span id="note" style="paddi
 
 </div>
 </script></section><section  data-markdown><script type="text/template">
-<div id='dark'>
 
 ## Loss Function
 
 <div style="font-size:0.9em;">
 
+<div style="text-align:left;">
+
 - Maximize the <span id="blue">_expected squared charge difference_ </span>:
-  <div id="note" style="max-width=60%;">
-  \[\begin{equation}
-  \mathcal{L}(\theta) = \color{#228BE6}{\mathbb{E}_{p(\xi)}}
-  \left[-\color{#FA5252}{{\delta Q}}^{2}_{\color{#FA5252}{\mathbb{R}}}(\xi', \xi)\cdot
-  A(\xi'|\xi)\right]
-  \end{equation}\]
-  </div>
+
+</div>
+
+<span id="note" style="text-align:center;align:center;">`\(\mathcal{L}(\theta) = \color{#228BE6}{\mathbb{E}_{p(\xi)}}
+\left[-\color{#FA5252}{{\delta Q}}^{2}_{\color{#FA5252}{\mathbb{R}}}(\xi', \xi)\cdot
+A(\xi'|\xi)\right]\)`</span>
+
+<div style="text-align:left;">
+
+<br>
+
 - Where $\color{#FA5252}{\delta Q_{\mathbb{R}}}$ is the <span id="red">tunneling rate</span>
   $$\color{#FA5252}{\delta Q_{\mathbb{R}}}(\xi',\xi)=\left|Q_{\mathbb{R}}(x') - Q_{\mathbb{R}}(x)\right|$$
 - And $A(\xi'|\xi)$ is probability of accepting the proposal configuration $\xi'$.
   $$ A(\xi'|\xi) = \min\left(1, \frac{p(\xi')}{p(\xi)}\left|\frac{\partial \xi'}{\partial \xi^{T}}\right|\right\)$$
+
+</div>
+
+</div>
 
 </div>
 </script></section><section  data-markdown><script type="text/template">
@@ -617,39 +635,6 @@ different $\beta$, with varying trajectory lengths $N_{\mathrm{LF}}$</small>
 </script></section><section  data-markdown><script type="text/template">
 <div id="dark">
 
-## Non-Compact Projection 
-<small>[arXiv:2002.02428](https://arxiv.org/abs/2002.02428)</small>
-
-<div style="font-size:0.8em;">
-
-- Project $x \in[-\pi, \pi]$ onto $\mathbb{R}$ using a transformation $z = g(x)$:
-  $$ z = \tan\left(\frac{x}{2}\right) $$
-- Perform the update in $\mathbb{R}$:
-  $$ z' = m^{t}\odot z + \bar{m}^{t}\odot \left[\alpha z + \beta\right]$$
-- Project back to $[-\pi, \pi]$ using $x = g^{-1}(z)$:
-  $$ x = 2 \tan^{-1}(z) $$
-
-</div>
-
-</div>
-</script></section><section  data-markdown><script type="text/template">
-<div id="dark">
-
-## Non-Compact Projection
-<small>[arXiv:2002.02428](https://arxiv.org/abs/2002.02428)</small>
-
-- Combine into a single update:
-  $$ x' = \color{#228BE6}{m^{t}}\odot x +
-  \color{#FA5252}{\bar{m}^{t}}\odot\left[2\tan^{-1}\left(\alpha\tan\left(\frac{x}{2}\right)\right)+\beta\right]
-  $$
-- With corresponding Jacobian:
-  $$ \frac{\partial x'}{\partial x} = \frac{\exp(\varepsilon s_{x})}{\cos^{2}(x/2)+exp(2\varepsilon s_{x})\sin(x/2)} $$
-
-
-</div>
-</script></section><section  data-markdown><script type="text/template">
-<div id="dark">
-
 ## Acknowledgements
 
 <div id="left">
@@ -659,7 +644,7 @@ different $\beta$, with varying trajectory lengths $N_{\mathrm{LF}}$</small>
  - James C. Osborn
 
 ### References:
- - [Link to slides](https://bit.ly/l2hmc-ect2021)
+ - [Link to slides](https://bit.ly/phys-sem)
  - [Link to github](https://github.com/saforem2/l2hmc-qcd)
  - [reach out!](mailto://foremans@anl.gov)
  - [Link to HMC demo](https://chi-feng.github.io/mcmc-demo/app.html)
@@ -694,6 +679,16 @@ DE-AC02-06CH11357.
 </small>
 
 </div>
+</script></section><section  data-markdown><script type="text/template">
+<section data-background-iframe="https://chi-feng.github.io/mcmc-demo/app.html"
+          data-background-interactive>
+</script></section><section  data-markdown><script type="text/template"># Thank you!
+
+
+- 🔗 Slides: [bit.ly/phys-sem](https://bit.ly-phys-sem)
+- <a href="https://twitter.com/saforem2/status/1505576506696900608?s=20&t=qtuJbHVVIfYKoWwFWUjcNw">
+<i class="fab  fa-twitter faa-float animated "></i> What advice would you give to yourself as an undergrad?</a>
+
 
 <style>
 
@@ -702,7 +697,7 @@ DE-AC02-06CH11357.
     --r-heading-margin: 0 0 20px 0;
     --r-heading-font: "graze-pro", "OpenSans-Bold", "Open Sans", Helvetica, Impact, sans-serif;
     --r-main-background-color: #1c1c1c;
-    --r-main-font: "graze-pro";
+    --r-main-font: "graze-pro", Helvetica Neue, sans-serif;
     --r-main-font-size: 34px;
     --r-block-margin: 5px;
     --r-heading-margin: 0 0 20px 0;
@@ -1053,6 +1048,7 @@ DE-AC02-06CH11357.
     <script src="./_assets/plugin/reveal.js-plugins/customcontrols/plugin.js"></script>
     <script src="./_assets/plugin/fontawesome.js"></script>
     <script src="./_assets/js/fontawesome-all.min.js"></script>
+    <script src="./_assets/./plugin/embed-tweet/plugin.js"></script>
     <script src="./_assets/plugin.js"></script>
 
     <script>
