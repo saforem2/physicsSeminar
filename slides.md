@@ -54,25 +54,27 @@ March, 2022
 
 <div id="left" style="50%;">
 
-1. <span id="red">Born</span>: Chicago, IL
-
-2. <span id="red">Undergrad</span>: 
-
-  - UIUC (2010 - 2015)
-
-    - B.S. Engineering Physics
-
-    - B.S. Applied Math
-
-3. <span id="red">Grad school</span>: 
-
-  - U Iowa (2015 - 2019)
-
-    - PhD. Physics
-
-4. <span id="red">Postdoc</span>: 
-  - ANL (2019 - ??) 
-    - [Leadership Computing Facility](https://alcf.anl.gov/about/people/sam-foreman)
+<ol>
+<li> <span id="red">Born</span>: Chicago, IL </li>
+<li> <span id="red">Undergrad</span>: </li>
+  <ul>
+  <li>UIUC (2010 - 2015)</li>
+  <li> B.S. Engineering Physics</li>
+  <li>B.S. Applied Math</li>
+  </ul>
+<li><span id="red">Grad school</span>:</li>
+  <ul>
+  <li>U Iowa (2015 - 2019)</li>
+  <li>PhD. Physics</li>
+  </ul>
+<li><span id="red">Postdoc</span>:</li>
+  <ul>
+  <li>ANL (2019 - Current)</li>
+    <ul>
+    <li> <a href="https://alcf.anl.gov/about/people/sam-foreman">Leadership Computing Facility</a></li>
+    </ul>
+  </ul>
+</ol>
 
 </div>
 
