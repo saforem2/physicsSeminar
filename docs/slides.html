@@ -48,16 +48,21 @@ March, 2022
 <div id="left" style="50%;">
 
 1. <span id="red">Born</span>: Chicago, IL
-<br>
+
 2. <span id="red">Undergrad</span>: 
+
   - UIUC (2010 - 2015)
+
     - B.S. Engineering Physics
+
     - B.S. Applied Math
-<br>
+
 3. <span id="red">Grad school</span>: 
+
   - U Iowa (2015 - 2019)
+
     - PhD. Physics
-<br>
+
 4. <span id="red">Postdoc</span>: 
   - ANL (2019 - ??) 
     - [Leadership Computing Facility](https://alcf.anl.gov/about/people/sam-foreman)
@@ -256,19 +261,21 @@ $\hspace{10pt}$
 </script></section><section  data-markdown><script type="text/template">
 <div style="text-align:left;">
 
-## HMC: Leapfrog Integrator
+### HMC: Leapfrog Integrator
 
 - Hamiltonian: $H(x, v) = S(x) + \frac{1}{2} v^{2}$
 
-- <span id="blue">Target distribution</span> $p(x) \propto e^{-S(x)} \Longrightarrow$
-  - $p(x, v) \propto e^{-S(x)} \cdot e^{-\frac{v^{2}}{2}} = e^{-H(x, v)}$
+- Target distribution: <span id="blue">$p(x)$
+  $\propto e^{-S(x)}$</span>, <span id="green">$p(v)$ $\propto
+  e^{-\frac{1}{2}v^{2}}$ </span> $\Longrightarrow$
+  - $p(x, v) \propto $<span id="blue"> $e^{-S(x)}$</span> $\cdot$ <span id="green">$e^{-\frac{v^{2}}{2}}$</span>$ = e^{-H(x, v)}$
 
 - Hamilton's equations:
 </div>
 
-<span id="note" style="font-size:1.1em">$\dot{x} = \frac{\partial H}{\partial v}$</span>
+<span id="note" style="font-size:1.0em">$\dot{x} = \frac{\partial H}{\partial v}$</span>
 $\hspace{10pt}$
-<span id="note" style="font-size:1.1em">$\dot{v} = - \frac{\partial H}{\partial x}$</span>
+<span id="note" style="font-size:1.0em">$\dot{v} = - \frac{\partial H}{\partial x}$</span>
 
 <div style="text-align:left;">
 
@@ -276,7 +283,7 @@ $\hspace{10pt}$
 
 </div>
 
-<div id="note" style="max-width:66%;">
+<div id="note" style="max-width:50%;">
 
 1. $ \tilde{v} = v + \frac{\varepsilon}{2} \partial_{x} U$
 
