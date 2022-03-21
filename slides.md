@@ -5,7 +5,7 @@ height: 720px
 center: true
 margin: 0.1
 highlightTheme: monokai-sublime
-css: 
+css:
  - 'custom/custom_theme.css'
  - 'custom/graze-pro.css'
 transition: slide
@@ -21,7 +21,6 @@ revealOptions:
       transitions: true
       transition: 'slide'
 ---
-<div style="align:center;vertical-align:center;">
 
 <h1 display=inline:block;>Machine Learning & HEP:</h1>
 <h3 display=inline:block; style="line-height:1.5em;margin-bottom:5px;">How Particle Physics Prepared Me for a Career in Data Science</h3>
@@ -30,11 +29,10 @@ revealOptions:
 </a></h3>
 <h4><a href="https://twitter.com/saforem2">
 <i class="fab  fa-twitter faa-float animated "></i> @saforem2</a></h4>
-<!-- <h5><a href="https://bit.ly/phys-sem">🔗 slides</a></h5> -->
 <br>
 March, 2022
 
-<div align="bottom">
+<div align="bottom" style="padding-top:10px;">
 
 [<img align="left" width=10% src="assets/github.svg">](https://github.com/saforem2/l2hmc-qcd)
 <img align="left" style="padding-left:45px;" width=10% src="assets/qr.svg">
