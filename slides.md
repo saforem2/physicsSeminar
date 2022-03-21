@@ -105,7 +105,7 @@ March, 2022
     - Molecular Dynamics
   - <span id="red">Machine Learning</span>
 
-- Received the [Office of Science Graduate Student Research Program](https://science.osti.gov/wdts/scgsr) fellowship
+- Received the [DOE SCGSR](https://science.osti.gov/wdts/scgsr) fellowship
   - Allowed me to spend last year of grad school at ANL working on my proposed project
   - Introduced me to my current supervisor and opened the door for my postdoc
 
@@ -118,7 +118,7 @@ March, 2022
 - <i class="fab  fa-github faa-float animated "></i> [HEP-ML-Resources](https://github.com/iml-wg/HEP-ML-Resources)
 
 - [Snowmass 2021](https://snowmass21.org/start)
-  - [Applications of Machine Learning to Lattice Quantum Field Theory](https://arxiv.org/abs/2202.05838)
+  - 📃 [Applications of Machine Learning to Lattice Quantum Field Theory](https://arxiv.org/abs/2202.05838)
 
 > It provides an opportunity for the entire particle physics community to come
 > together to identify and document a scientific vision for the future of
@@ -269,6 +269,117 @@ As $N\rightarrow\infty$, $p(x) \rightarrow \mathcal{N}(0, \mathbb{1})$
 
 ---
 
+<div style="text-align: left;">
+
+### Hamiltonian Monte Carlo (HMC)
+
+- Hamiltonian Dynamics:
+
+</div>
+
+<span id="note" style="font-size:1.5em">$\dot{x} = \frac{\partial H}{\partial v}$</span>
+$\hspace{10pt}$
+<span id="note" style="font-size:1.5em">$\dot{v} = - \frac{\partial H}{\partial x}$</span>
+
+![](assets/hmc1.svg)  <!-- .element width="90%" -->
+
+---
+
+<div style="text-align:left;">
+
+## HMC: Leapfrog Integrator
+
+- Hamiltonian: $H(x, v) = S(x) + \frac{1}{2} v^{2}$
+
+- <span id="blue">Target distribution</span> $p(x) \propto e^{-S(x)} \Longrightarrow$
+  - $p(x, v) \propto e^{-S(x)} \cdot e^{-\frac{v^{2}}{2}} = e^{-H(x, v)}$
+
+- Hamilton's equations:
+</div>
+
+<span id="note" style="font-size:1.1em">$\dot{x} = \frac{\partial H}{\partial v}$</span>
+$\hspace{10pt}$
+<span id="note" style="font-size:1.1em">$\dot{v} = - \frac{\partial H}{\partial x}$</span>
+
+<div style="text-align:left;">
+
+- <span id="red">Leapfrog Integrator</span>:
+
+</div>
+
+<div id="note" style="max-width:66%;">
+
+1. $ \tilde{v} = v + \frac{\varepsilon}{2} \partial_{x} U$
+
+2. $ x' = \tilde{x} + \varepsilon \tilde{v} $
+
+3. $ v' = \tilde{v} + \frac{\varepsilon}{2} \partial_{x} U$
+
+</div>
+
+---
+
+# HMC 
+
+<section data-background-iframe="https://chi-feng.github.io/mcmc-demo/app.html"
+          data-background-interactive>
+
+---
+
+<div id='dark'>
+
+# Issues with HMC
+
+- Energy levels selected randomly $\rightarrow$ <span id="red">slow mixing!</span>
+- Cannot easily traverse low-density zones
+- What do we want in a good sampler?
+  - <span id="blue">**Fast mixing**</span> (small autocorrelations)
+  - <span id="blue">**Fast burn-in**</span> (quick convergence)
+
+![](assets/hmc_traj_eps05.svg) <!-- .element width="49%" -->
+![](assets/hmc_traj_eps025.svg) <!-- .element width="49%" -->
+
+</div>
+
+---
+
+<div id='dark'>
+
+# <span style="color: #3B4CC0;">Critical Slowing Down</span>
+
+<div id="left" style="width: 45%; font-size: 100%;text-align:left;align:left;margin-left:25pt;margin-top:20pt;font-size:1.1em;">
+
+<h6><span id="note" style="color:rgb(123,159,249);background-color:rgba(123,159,249,0.15);">Charge Freezing</span></h6>
+
+- <span style="color:rgb(192,212,245);font-weight:600;">$Q$ gets stuck!
+<br>
+<br>
+- <span style="color:rgb(242, 203, 183);">$\delta Q \longrightarrow 0$</span> <span style="color:rgb(242, 203, 183);"> </span>
+<br>
+<br>
+- <span style="color:rgb(238, 132, 104);">need to wait $N_{\mathrm{configs}}\longrightarrow \infty$</span>
+
+<br><span id="note" style="color:rgb(255,82,82);background-color:rgba(255,82,82,0.15);padding:10px;margin-left:35pt;align:center;">
+$\tau_{\mathrm{int}}^{Q} \longrightarrow \infty$
+</span>
+
+</div>
+
+<div id="right" style="align:right;">
+
+<img src="assets/critical_slowing_down.svg" style="max-width:85%; height:auto;align:right;">
+
+</div>
+
+</div>
+
+---
+# Lattice QCD
+
+<img src="assets/static/continuum.svg" width=90%>
+
+---
+
 <div id='dark' style="vertical-align:center;text-align:left;">
 
 # Motivation
@@ -325,83 +436,6 @@ $$
 
 <div id='dark'>
 
-# <span style="color: #3B4CC0;">Critical Slowing Down</span>
-
-<div id="left" style="width: 45%; font-size: 100%;text-align:left;align:left;margin-left:25pt;margin-top:20pt;font-size:1.1em;">
-
-<h6><span id="note" style="color:rgb(123,159,249);background-color:rgba(123,159,249,0.15);">Charge Freezing</span></h6>
-
-- <span style="color:rgb(192,212,245);font-weight:600;">$Q$ gets stuck!
-<br>
-<br>
-- <span style="color:rgb(242, 203, 183);">$\delta Q \longrightarrow 0$</span> <span style="color:rgb(242, 203, 183);"> </span>
-<br>
-<br>
-- <span style="color:rgb(238, 132, 104);">need to wait $N_{\mathrm{configs}}\longrightarrow \infty$</span>
-
-<br><span id="note" style="color:rgb(255,82,82);background-color:rgba(255,82,82,0.15);padding:10px;margin-left:35pt;align:center;">
-$\tau_{\mathrm{int}}^{Q} \longrightarrow \infty$
-</span>
-
-</div>
-
-<div id="right" style="align:right;">
-
-<img src="assets/critical_slowing_down.svg" style="max-width:85%; height:auto;align:right;">
-
-</div>
-
-</div>
-
----
-# Lattice QCD
-
-<img src="assets/static/continuum.svg" width=90%>
-
----
-
-<div style="text-align: left;">
-
-### HMC: Leapfrog Integrator
-
-- Hamiltonian Dynamics:
-
-</div>
-
-<span id="note" style="font-size:1.5em">$\dot{x} = \frac{\partial H}{\partial v}$</span>
-$\hspace{10pt}$
-<span id="note" style="font-size:1.5em">$\dot{v} = - \frac{\partial H}{\partial x}$</span>
-
-![](assets/hmc1.svg)  <!-- .element width="90%" -->
-
----
-
-# HMC 
-
-<section data-background-iframe="https://chi-feng.github.io/mcmc-demo/app.html"
-          data-background-interactive>
-
----
-
-<div id='dark'>
-
-# Issues with HMC
-
-- Energy levels selected randomly $\rightarrow$ <span id="red">slow mixing!</span>
-- Cannot easily traverse low-density zones
-- What do we want in a good sampler?
-  - <span id="blue">**Fast mixing**</span> (small autocorrelations)
-  - <span id="blue">**Fast burn-in**</span> (quick convergence)
-
-![](assets/hmc_traj_eps05.svg) <!-- .element width="49%" -->
-![](assets/hmc_traj_eps025.svg) <!-- .element width="49%" -->
-
-</div>
-
----
-
-<div id='dark'>
-
 #### L2HMC: LeapfrogLayer
 
 <div id="float" style="width:100%;align:center;">
@@ -414,14 +448,16 @@ $\hspace{10pt}$
 
 ---
 
-<div id='dark'>
+<div id='dark' style="text-align:left;">
 
 ## Algorithm
 
+Input: <span id="red" style="text-align:left;">$x$</span>
+
 <div class="column" style="width=100%;font-size:0.77em;">
 
-1. Resample <span id="green">$\mathbf{v} \sim \mathcal{N}(0, \mathbb{1})$</span>, <span id="pink">$d\sim\mathcal{U}(+, -)$,</span> 
-   construct <span id="cyan">$\xi$</span>$=(\mathbf{x}, $<span id="green">$\mathbf{v}$</span>, <span id="pink">$\pm$</span>$)$
+1. Resample <span id="green">$\mathbf{v} \sim \mathcal{N}(0, \mathbb{1})$</span>,
+   construct <span id="cyan">$\xi$</span>$=($<span id="red">$\mathbf{x}$</span>$,$ <span id="green">$\mathbf{v}$</span>$)$
 
 2. Generate <span style="color:#AE81FF;">proposal $\xi^{\ast}$</span> by passing <span id="cyan">initial
    $\xi$</span> through $N_{\mathrm{LF}}$ **leapfrog
@@ -627,7 +663,7 @@ single L2HMC trajectory.
 
 <div id="note" style="color:rgb(255,255,255);background-color:rgba(255,255,255,0.15);margin-top:-40px;">
 
-Average plaquette $\langle x_{P}\rangle$ vs lf step
+Average plaq $\langle x_{P}\rangle$
 
 </div>
 
@@ -746,15 +782,13 @@ DE-AC02-06CH11357.
 </div>
 
 ---
-
-<section data-background-iframe="https://chi-feng.github.io/mcmc-demo/app.html"
-          data-background-interactive>
-
----
 # Thank you!
 
 
 - 🔗 Slides: [bit.ly/phys-sem](https://bit.ly-phys-sem)
+- Reach out! [foremans@anl.gov](mailto:///foremans@anl.gov)
+  - <i class="fab  fa-twitter faa-float animated "></i><a href="https://www.twitter.com/saforem2"> @saforem2</a>
+  - <i class="fab  fa-github faa-float animated "></i><a href="https://www.github.com/saforem2"> saforem2</a>
 - <a href="https://twitter.com/saforem2/status/1505576506696900608?s=20&t=qtuJbHVVIfYKoWwFWUjcNw">
 <i class="fab  fa-twitter faa-float animated "></i> What advice would you give to yourself as an undergrad?</a>
 
