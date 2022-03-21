@@ -6,7 +6,9 @@ height: 720px
 center: true
 margin: 0.1
 highlightTheme: monokai-sublime
-css: 'custom/custom_theme.css'
+css: 
+ - 'custom/custom_theme.css'
+ - 'custom/graze-pro.css'
 transition: slide
 revealOptions:
     transition: 'slide'
@@ -764,7 +766,7 @@ DE-AC02-06CH11357.
     --r-heading-margin: 0 0 20px 0;
     --r-heading-font: "graze-pro", "OpenSans-Bold", "Open Sans", Helvetica, Impact, sans-serif;
     --r-main-background-color: #1c1c1c;
-    --r-main-font: "graze-pro", Helvetica Neue, sans-serif;
+    --r-main-font: "graze-pro", "SourceSansPro", Helvetica Neue, sans-serif;
     --r-main-font-size: 34px;
     --r-block-margin: 5px;
     --r-heading-margin: 0 0 20px 0;
