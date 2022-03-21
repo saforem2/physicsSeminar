@@ -1,6 +1,5 @@
 ---
 title: "ML in HEP"
-theme: black
 width: 1280px
 height: 720px
 center: true
@@ -164,13 +163,13 @@ March, 2022
 
 # Markov Chain Monte Carlo
 
-- MCMC sampling provides a class of algorithms for systematic sampling from
-  high-dimensional probability distributions.
-
 - <span id="red">Goal</span>: Generate an ensemble of <span
   id="blue">independent</span> samples drawn from desired target distribution $p(x)$.
 
   - This can be done using the <span id="blue">Metropolis-Hastings</span> algorithm
+
+> MCMC sampling provides a class of algorithms for systematic sampling from
+> high-dimensional probability distributions.
 
 ---
 <span style="font-size: 0.9em;">
@@ -588,7 +587,7 @@ A(\xi'|\xi)\right]\)`</span>
 
 - Where $\color{#FA5252}{\delta Q_{\mathbb{R}}}$ is the <span id="red">tunneling rate</span>
   $$\color{#FA5252}{\delta Q_{\mathbb{R}}}(\xi',\xi)=\left|Q_{\mathbb{R}}(x') - Q_{\mathbb{R}}(x)\right|$$
-- And $A(\xi'|\xi)$ is probability of accepting the proposal configuration $\xi'$.
+- And $A(\xi'|\xi)$ is probability of accepting the proposal $\xi'$.
   $$ A(\xi'|\xi) = \min\left(1, \frac{p(\xi')}{p(\xi)}\left|\frac{\partial \xi'}{\partial \xi^{T}}\right|\right\)$$
 
 </div>
